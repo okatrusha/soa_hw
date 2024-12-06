@@ -1,0 +1,16 @@
+
+services:
+  cl_service:
+    build:
+      context: ./cl_service
+    ports:
+      - "5001:5001"
+
+  cl_runner:
+    build:
+      context: ./cl_runner
+    # image : hello
+    ports:
+      - "5002:5002"
+    depends_on:
+      - cl_service
